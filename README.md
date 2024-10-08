@@ -6,14 +6,14 @@
     - **2. Cấu hình trên Nodes**
     - **3. Cấu hình trên Client**
 - **III. Cấu hình DNS trên Server Loadbalancer**
-    -**1. Cấu hình BIND**
-    -**2. Khai báo zone**
-    -**3. Tạo file record của các zone**
-    -**4. Khởi động dịch vụ DNS**
+    - **1. Cấu hình BIND**
+    - **2. Khai báo zone**
+    - **3. Tạo file record của các zone**
+    - **4. Khởi động dịch vụ DNS**
 - **III. Cấu hình NGINX**
-    -**1. Cấu hình Loadbalancer Server**
-    -**2. Cấu hình trên các Nodes**
-    -**3. Khởi động lại dịch vụ NGINX**
+    - **1. Cấu hình Loadbalancer Server**
+    - **2. Cấu hình trên các Nodes**
+    - **3. Khởi động lại dịch vụ NGINX**
 
 ## I. Cài đặt BIND và NGINX
 ### 1. Chuẩn bị 
