@@ -1,0 +1,50 @@
+server {
+
+    listen       80 default_server;
+    root /var/www/project;
+    index   index.html;
+    server_name server1.local;
+
+    location / {
+    	try_files $uri $uri/ =404;
+    }
+}
+đen là server 1 192.168.154.130
+trắng là server 2 192.168.154.131
+lb server là 192.168.154.129
+
+/etc/nginx/sites-available/default
+/etc/nginx/sites-enabled/default
+/etc/nginx/sites-enabled/server.local
+/var/www/project
+
+sudo lsof -i :80
+
+
+
+
+
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    ens33:
+      dhcp4: no
+      addresses:
+        - 192.168.1.3/24
+      routes:
+        - to: default
+          via: 192.168.1.1
+      nameservers:
+        addresses:
+          - 192.168.1.1
+	search [sgu.edu.vn];
+
+options {
+        directory "/var/cache/bind";
+        listen-on port 53 { 192.168.1.1; 127.0.0.1; };
+        allow-query { localhost; 192.168.1.0/24 ;any; };
+        recursion yes;
+        dnssec-validation no;
+        allow-transfer {none; };
+};

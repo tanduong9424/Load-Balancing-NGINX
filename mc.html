@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manchester City Style</title>
+    <style>
+        body {
+            background-color: #00A3E0; /* Nền xanh */
+            color: #FFFFFF; /* Chữ trắng */
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 24px;
+        }
+        .decorative {
+            border: 2px solid #FFFFFF; /* Viền trắng */
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Đổ bóng */
+        }
+        .button {
+            background-color: #FFFFFF; /* Nền trắng cho nút */
+            color: #00A3E0; /* Chữ xanh */
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #E0E0E0; /* Màu xám nhạt khi hover */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to Manchester City</h1>
+    <div class="decorative">
+        <p>Join us in celebrating the spirit of Manchester City!</p>
+        <button class="button" onclick="showMessage()">Click me</button>
+    </div>
+
+    <script>
+        function showMessage() {
+            alert("Glory Glory Man City!");
+        }
+    </script>
+
+</body>
+</html>
