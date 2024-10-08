@@ -20,7 +20,7 @@
 - Hãy đảm bảo máy ảo có kết nối mạng đến bên ngoài.
 ![](./nat.png)
 - Tiến hành cài gói BIND
-```sudo apt update```
-```sudo apt install bind9 bind9utils bind9-doc```
-```sudo nano /etc/default/named```
-Thêm -4 vào ```OPTIONS="-u bind -4"``` nhằm đảm bảo rằng nó chỉ sử dụng IPv4, giúp tránh các vấn đề tiềm ẩn liên quan đến Ipv6.
+- ```sudo apt update```
+- ```sudo apt install bind9 bind9utils bind9-doc```
+- ```sudo nano /etc/default/named```
+- Thêm -4 vào ```OPTIONS="-u bind -4"``` nhằm đảm bảo rằng nó chỉ sử dụng IPv4, giúp tránh các vấn đề tiềm ẩn liên quan đến Ipv6.
