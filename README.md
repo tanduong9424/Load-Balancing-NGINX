@@ -159,9 +159,9 @@ $TTL    604800
 - Sau khi hoàn thành các bước trên tiến hành test thử:
 - ```sudo named-checkconf```
 - ```sudo named-checkzone sgu.edu.vn  /etc/bind/zones/db.sgu.edu.vn```
-- ```sudo named-checkzone 1.168.192.in-addr.arpa  /etc/bind/zones/db.1.168.192``
+- ```sudo named-checkzone 1.168.192.in-addr.arpa  /etc/bind/zones/db.1.168.192```
 - Nếu không có lỗi ta tiến hành khởi động Bind:
-- ```sudo systemctl restart bind9``
+- ```sudo systemctl restart bind9```
 - ```sudo ufw allow Bind9``` (cho phép allow bind nếu có dùng tường lửa)
 - Đến đây ta đã cấu hình được DNS với tên miền là sgu.edu.vn , ip là 192.168.1.1/24
 ## III. Cấu hình NGINX
