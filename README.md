@@ -38,6 +38,7 @@ Nodes 1: 192.168.1.2/24 (Ubuntuserver)
 Nodes 2: 192.168.1.3/24 (Ubuntuserver)
 Client: 192.168.1.10/24 (Windows 7)
 ```
+![](tolopy.png)
 ### 1. Cấu hình IP tĩnh trên Loadbalancer
 - Ở /etc/netplan/50-cloud-init.yaml (nếu có) tiến hành cấu hình, chuyển dhcp4 thành no để sử dụng ip tĩnh.
 ```sh
