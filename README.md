@@ -3,7 +3,7 @@
 - **I. Cài đặt gói BIND và NGINX**
 - **II. Cấu hình ip tĩnh**
     - **1. Cấu hình IP tĩnh trên Loadbalancer**
-    - **2. Cấu hình IP tĩnh trên Nodes**
+    - **2. Cấu hình IP tĩnh trên các node**
     - **3. Cấu hình IP tĩnh trên Client**
 - **III. Cấu hình DNS trên Server Loadbalancer**
     - **1. Cấu hình BIND**
@@ -12,7 +12,7 @@
     - **4. Khởi động dịch vụ DNS**
 - **III. Cấu hình NGINX**
     - **1. Cấu hình Loadbalancer Server**
-    - **2. Cấu hình trên các Nodes**
+    - **2. Cấu hình trên các node**
     - **3. Khởi động lại dịch vụ NGINX**
 
 ## I. Cài đặt BIND và NGINX
@@ -30,12 +30,12 @@
 - ```apt-get install nginx```
 - ```nginx -v``` kiểm tra version nginx
 - ```sudo ufw allow 80``` cho phép port 80 http của nginx vượt tường lửa
-- Làm tương tự trên 2 Nodes
+- Làm tương tự trên 2 node
 ## II. Cấu hình IP tĩnh
 ```
 Server: 192.168.1.1/24 (Ubuntuserver)
-Nodes 1: 192.168.1.2/24 (Ubuntuserver)
-Nodes 2: 192.168.1.3/24 (Ubuntuserver)
+node 1: 192.168.1.2/24 (Ubuntuserver)
+node 2: 192.168.1.3/24 (Ubuntuserver)
 Client 1: 192.168.1.10/24 (Windows 7)
 Client 2: 192.168.1.20/24 (Windows 7 nếu có)
 ```
@@ -69,7 +69,7 @@ network:
 #ví dụ fit.sgu.edu.vn nhưng chỉ gõ fit thì sẽ tự động điền thêm phần sgu.edu.vn
 ```
 - ```sudo netplan apply``` để áp dụng những cấu hình trên.
-### 2. Cấu hình IP tĩnh trên Nodes
+### 2. Cấu hình IP tĩnh trên node
 Ta thực hiện cấu hình file 50-cloud-init.yaml như trên và nếu không tồn tại ta cấu hình 5-ens33-eth.yaml (tự tạo bằng touch) như sau:
 ```sh
 network:
@@ -79,8 +79,8 @@ network:
     ens33:
       dhcp4: no
       addresses:
-        - 192.168.1.2/24 #địa chỉ của nodes thứ nhất
-        #- 192.168.1.2/24 #địa chỉ của nodes thứ hai
+        - 192.168.1.2/24 #địa chỉ của node thứ nhất
+        #- 192.168.1.2/24 #địa chỉ của node thứ hai
       routes:
         - to: default
           via: 192.168.1.1
@@ -172,8 +172,8 @@ $TTL    604800
 - Thêm block upstream có tên là backend
 ```sh
 upstream backend {
-        server 192.168.1.2; #đây là ip của nodes thứ nhất để chịu tải
-        server 192.168.1.3; #đây là ip của nodes thứ hai để chịu tải
+        server 192.168.1.2; #đây là ip của node thứ nhất để chịu tải
+        server 192.168.1.3; #đây là ip của node thứ hai để chịu tải
 }
 ```
 - Chỉnh phần ip của server_name về ip của server Load Balancer đang cấu hình
@@ -189,7 +189,7 @@ location / {
 ```
 - Restart lại 	```sudo systemctl restart nginx```
 - Kiểm tra lỗi cấu hình nếu có	```nginx -t```
-#### Tiếp đến ta cấu hình web ở trên 2 nodes
+#### Tiếp đến ta cấu hình web ở trên 2 node
 - ```/etc/nginx/sites-available/``` :Thư mục chứa các file cấu hình server block.
 - ```/etc/nginx/sites-enabled/``` :Thư mục chứa Danh sách các server blocks được kích hoạt, thường là kích hoạt từ sites-available
 - Tiến hành truy cập vào sites-availables ```cd /etc/nginx/sites-availables```
@@ -207,7 +207,7 @@ server {
     }
 }
 ```
-- Làm tương tự trên nodes với file là ```server2.local```.
+- Làm tương tự trên node với file là ```server2.local```.
 - Kế tiếp ta sẽ tạo 1 symbolic link server2.local từ sites-availables liên kết đến sites-enabled.Nginx sẽ đọc các file cấu hình tại thư mục sites-enabled mỗi khi khởi động:
 - ```sudo ln -s /etc/nginx/sites-available/server2.local /etc/nginx/sites-enabled/```
 - ```sudo nginx –t```
