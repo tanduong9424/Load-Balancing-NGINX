@@ -19,11 +19,16 @@
 ### 1. Chuẩn bị 
 - Hãy đảm bảo máy ảo có kết nối mạng đến bên ngoài.
 ![](./nat.png)
+<<<<<<< HEAD
 ### 2. Tiến hành cài gói BIND
+=======
+- Tiến hành cài gói BIND
+>>>>>>> b51446d44e7f46ec3640ee02a27b6cfd65e767da
 - ```sudo apt update```
 - ```sudo apt install bind9 bind9utils bind9-doc```
 - ```sudo nano /etc/default/named```
 - Thêm -4 vào ```OPTIONS="-u bind -4"``` nhằm đảm bảo rằng nó chỉ sử dụng IPv4, giúp tránh các vấn đề tiềm ẩn liên quan đến Ipv6.
+<<<<<<< HEAD
 ### 3. Tiến hành cài đạt gói NGINX
 - ```sudo apt-get update```
 - ```apt-get install nginx```
@@ -226,3 +231,5 @@ sudo systemctl enable nginx
 - Đến đây là đã kết thúc phần tài liệu tham khảo về Load Balancing sử dụng NGINX trên Ubuntu server của nhóm chúng em, cảm ơn mọi người đã quan tâm
 
 
+=======
+>>>>>>> b51446d44e7f46ec3640ee02a27b6cfd65e767da
