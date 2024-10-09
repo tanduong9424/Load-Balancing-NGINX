@@ -36,7 +36,8 @@
 Server: 192.168.1.1/24 (Ubuntuserver)
 Nodes 1: 192.168.1.2/24 (Ubuntuserver)
 Nodes 2: 192.168.1.3/24 (Ubuntuserver)
-Client: 192.168.1.10/24 (Windows 7)
+Client 1: 192.168.1.10/24 (Windows 7)
+Client 2: 192.168.1.20/24 (Windows 7 nếu có)
 ```
 ![](tolopy.png)
 ### 1. Cấu hình IP tĩnh trên Loadbalancer
