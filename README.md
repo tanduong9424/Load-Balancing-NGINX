@@ -197,10 +197,10 @@ location / {
 -Cấu hình ```sudo nano server1.local```	cấu hình như sau:
 ``` sh
 server {
-    listen       80 default_server;
+    listen       80;
     root  /var/www/project; #folder chứa file html,css,php,.. của web
     index   index.html; #trỏ đến file index để hiển thị
-    server_name server1.local;
+    server_name sgu.edu.vn;
     location / {
         try_files $uri $uri/ =404;
 #thử đường dẫn bằng biến uri là URL người dùng truy cập, nếu không có tệp nào tương ứng với uri #hoặc trong thử mục uri cũng không có nốt, nó sẽ báo lỗi 404 not found
