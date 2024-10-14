@@ -138,7 +138,7 @@ $TTL    604800
 fit     IN      A       192.168.1.1
 ```
 - ```sudo cp /etc/bind/db.127 /etc/bind/zones/db.1.168.192```	copy file cấu hình mẫu
-*chú ý: nếu không thực hiện được câu lệnh trên thì:
+-*Chú ý: nếu không thực hiện được câu lệnh trên thì:
 - ```sudo touch  /etc/bind/zones/db.1.168.192```
 Sau đó ```nano /etc/bind/db.127``` ctrl +A copy sang ```nano /etc/bind/zones/db.1.168.192``` paste vào.( Có thể dùng putty để telnet đến để paste)
 
