@@ -33,9 +33,9 @@
 - Làm tương tự trên 2 node
 ## II. Cấu hình IP tĩnh
 ```
-Server: 192.168.1.1/24 (Ubuntuserver)
-node 1: 192.168.1.2/24 (Ubuntuserver)
-node 2: 192.168.1.3/24 (Ubuntuserver)
+Server dựng Load Balancer: 192.168.1.1/24 (Ubuntuserver)
+Node 1: 192.168.1.2/24 (Ubuntuserver)
+Node 2: 192.168.1.3/24 (Ubuntuserver)
 Client 1: 192.168.1.10/24 (Windows 7)
 Client 2: 192.168.1.20/24 (Windows 7 nếu có)
 ```
