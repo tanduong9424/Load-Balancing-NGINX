@@ -32,6 +32,8 @@
 - ```sudo ufw allow 80``` cho phép port 80 http của nginx vượt tường lửa
 - Làm tương tự trên 2 node
 ## II. Cấu hình IP tĩnh
+- Sau khi cài xong ta tiến hành chuyển tất cả card mạng của Server, Node và Client sang VMnet1 (host only)
+![](hostonly.png)
 ```
 Server dựng Load Balancer: 192.168.1.1/24 (Ubuntuserver)
 Node 1: 192.168.1.2/24 (Ubuntuserver)
