@@ -246,7 +246,7 @@ network:
           #via: 192.168.1.1
 ```
 - ``` netplan apply``` để áp dụng cấu hình trên.
-- ``` apt install vsftpd`` để cài đặt vsftpd.
+- ``` apt install vsftpd``` để cài đặt vsftpd.
 ### 2. Cấu hình Vsftpd
 - Khởi động Vsftpd 
 - ```Sudo systemctl start vsftpd```
