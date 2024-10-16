@@ -190,8 +190,8 @@ location / {
 - ```/etc/nginx/sites-available/``` :Thư mục chứa các file cấu hình server block.
 - ```/etc/nginx/sites-enabled/``` :Thư mục chứa Danh sách các server blocks được kích hoạt, thường là kích hoạt từ sites-available
 - Tiến hành truy cập vào sites-availables ```cd /etc/nginx/sites-availables```
--Tạo mới file dùng để cấu hình web ```sudo touch server1.local```
--Cấu hình ```sudo nano server1.local```	cấu hình như sau:
+- Tạo mới file dùng để cấu hình web ```sudo touch server1.local```
+- Cấu hình ```sudo nano server1.local```	cấu hình như sau:
 ``` sh
 server {
     listen 80;
