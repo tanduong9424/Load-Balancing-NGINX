@@ -262,15 +262,15 @@ listen_ipv6=NO
 - Ở đây mình không cấu hình cho anonymous nên mình sẽ cấu hình chroot_list. Ta tiến hành uncomment, nếu đã uncomment rồi thì hãy bỏ qua.
 ``` sh
   local_enable=YES
-  write_enable=YES
-  local_umask=022
+  write_enable=YES #Uncomment dòng này
+  local_umask=022 #Uncomment dòng này
   dirmessage_enable=YES
   use_localtime=YES
   xferlog_enable=YES
   connect_from_port_20=YES
-  chroot_local_user=YES
-  chroot_list_enable=YES
-  chroot_list_file=/etc/vsftpd.chroot_list # đường dẫn file liệt kê các user có thể dùng FTP
+  chroot_local_user=YES #Uncomment dòng này
+  chroot_list_enable=YES #Uncomment dòng này
+  chroot_list_file=/etc/vsftpd.chroot_list #Uncomment dòng này. Đường dẫn file liệt kê các user có thể dùng FTP
   secure_chroot_dir=/var/run/vsftpd/empty
   pam_service_name=vsftpd
   rsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
