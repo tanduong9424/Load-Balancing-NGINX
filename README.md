@@ -280,10 +280,11 @@ listen_ipv6=NO
 ```
 - Ở đâu chúng ta thêm dòng ```allow_writeable_chroot=YES``` nhằm để tránh lỗi ```refusing to run with writable root inside chroot()```. Việc này nhằm cho phép người dùng vẫn có thể ghi vào thư mục gốc (thư mục home của từng người dùng trong chroot_list), mỗi người dùng sẽ có mỗi folder home khác nhau và file tải lên sẽ được ghi vào đó.
 
-- Sau đó ta tiến hành cấu hình ```/etc/vsftpd.chroot_list``` bằng cách thêm các tên user dùng để truyền file lên server , ở đây trong lab này mình sẽ thêm tên của PC thật mình đang dùng vào, mọi người có thể kiểm tra bằng cách vào cmd như mình ví dụ:
+- Sau đó ta tiến hành cấu hình ```nano /etc/vsftpd.chroot_list``` bằng cách thêm các tên user dùng để truyền file lên server , ở đây trong lab này mình sẽ thêm tên của PC thật mình đang dùng vào, mọi người có thể kiểm tra bằng cách vào cmd như mình ví dụ:
 ![](user.png)
 - Ở đây tên user của mình là DELL nên mình sẽ thêm vào /etc/vsftpd.chroot_list.
 ![](chrootlist.png)
+- Cuối cùng tiến hành ```systemctl restart vsftpd```
 
 ### 3. Truyền tải file từ máy thật sang node server
 - Xong các bước trên ta tiến hành ```systemctl restart vsftpd``` và thực hiện truyền file lên server.
