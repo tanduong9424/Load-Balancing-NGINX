@@ -185,6 +185,7 @@ location / {
         }
 ```
 - Restart lại 	```sudo systemctl restart nginx```
+- Nếu có lỗi ta tiến hành ```journalctl -xe nginx``` để tìm lỗi nếu là lỗi chính tả. Nếu không có lỗi chính tả ta tiến hành ```sudo lsof -i :80``` để kiểm tra các tiến trình đang dùng chung port 80 với Nginx, nếu có hãy kết thúc bằng câu lệnh ```kill -9 PID``` với PID là ID của tiến trình đang dùng port 80 đã nói trên. Sau đó tiến hành restart lại Nginx
 - Kiểm tra lỗi cấu hình nếu có	```nginx -t```
 #### Tiếp đến ta cấu hình web ở trên 2 node
 - ```/etc/nginx/sites-available/``` :Thư mục chứa các file cấu hình server block.
