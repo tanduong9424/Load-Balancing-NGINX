@@ -294,7 +294,8 @@ listen_ipv6=NO
 - Ta điền ip của server, tên và mật khẩu đăng nhập server vào, port có thể bỏ trống vì mặc định  là 20 hoặc 21 rồi. Sau đó ta ấn Connect.
 - Sau đó ta tiến hành kéo từ trái sang phải theo hướng mũi tên. Vậy là đã hoàn thành việc truyền tải file bằng Filezilla thông qua FTP rồi. Các folder sau khi được truyền sẽ nằm ở thư mục home/tên người dùng. Như ví dụ của mình thì server mình tên unbuntuserver thì các file vừa tải mc.html và mu.html sẽ nằm ở /home/unbuntuserver.
 ![](transfering.png)
-
+- Tiến hành biến file tải lên thành file index bằng cách ``` sudo mv /hom/ubuntuserver/mu.html /var/www/project/index.html```
+- Restart lại nginx ```systemctl restart nginx```
 
 
 - Sau khi cài xong ta tiến hành chuyển tất cả card mạng của Server, Node và Client sang VMnet1 (host only)
