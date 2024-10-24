@@ -152,8 +152,13 @@ $TTL 1d
 - Tiến hành tạo block cho serve sgu.edu.vn ```touch /etc/nginx/conf.d/sgu.edu.vn.conf```, sau đó cấu hình như sau :
 ```sh
 upstream backend {
-	server 192.168.1.2; #đây là ip của node thứ nhất để chịu tải
-	server 192.168.1.3; #đây là ip của node thứ hai để chịu tải
+	#least_conn;
+	#slow_start;
+	#ip_hash;
+	#server ns2.sgu.edu.vn weight=3;
+	#server ns3.sgu.edu.vn weight=1 ;
+	server ns2.sgu.edu.vn; #đây node thứ nhất để chịu tải .Mặc định thuật toán điều hướng sẽ là Round Robin
+	server ns3.sgu.edu.vn; #đây node thứ hai để chịu tải
 }
 
 server {
@@ -176,6 +181,13 @@ server {
 	}
 }
 ```
+- Giải thích về cách tham số và thuật toán:
+- ** weight :thông số càng lớn , Round Robin điều hướng về server đó càng nhiều, ví dụ server1 weight=3, server2 weight=1 , khi có 4 request, 3 request sẽ được điều hướng về server 1, 1 request sẽ được đưa về server2 .Tuy nhiên trước khi weight được áp dụng nginx sẽ thực hiện vòng phân phối đầu tiên theo cách cơ bản của round-robin (1 lần đến mỗi server) để đảm bảo rằng tất cả các server trong nhóm backend đã sẵn sàng và hoạt động bình thường.
+- ** ip_hash: Nginx lấy ip của client đến một backend server cụ thể, đảm bảo rằng các yêu cầu từ cùng một client luôn được xử lý bởi cùng một server.
+- **least_conn : server có ít kết nối nhất thì được điều hướng đến
+- **slow_start :VD trong 30s thì nó k đổ dồn 100 ng request và mà nó sẽ tăng chầm chậm dần lên từ 0->1->2.. rồi sao cho trong 30s đó nó sẽ trở về với khả nằng đáp ứng request ban đầu là 100 chẳng hạn.
+-  ** down : đánh dấu server đó không hoạt động.
+ 
 - Kiểm tra lại cấu hình bằng ```nginx -t```
 - Restart lại 	```sudo systemctl restart nginx```
 - Nếu có lỗi ta tiến hành ```journalctl -xe nginx``` để tìm lỗi nếu là lỗi chính tả. Nếu không có lỗi chính tả ta tiến hành ```sudo lsof -i :80``` để kiểm tra các tiến trình đang dùng chung port 80 với Nginx, nếu có hãy kết thúc bằng câu lệnh ```kill -9 PID``` với PID là ID của tiến trình đang dùng port 80 đã nói trên. Sau đó tiến hành restart lại Nginx.
