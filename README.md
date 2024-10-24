@@ -56,7 +56,8 @@ Client 2: 192.168.1.20/24 (không bắt buộc)
 ### 2. Cấu hình IP tĩnh trên node
 - Ở node thứ nhất và thứ 2 ta cấu hình như trên:
 ### 3. Cấu hình IP tĩnh trên Client
-- Chuyển địa chỉ ip của client sang như sau
+- Chuyển địa chỉ ip của client sang như sau.
+  
 ![](staticipclient.png)
 
 ## III. Cấu hình DNS trên Server Loadbalancer
