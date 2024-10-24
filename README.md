@@ -44,9 +44,9 @@ Client 2: 192.168.1.20/24 (không bắt buộc)
 ![](tolopy.png)
 ### 1. Cấu hình IP tĩnh trên Loadbalancer
 - Ở dây ta nên tiến hành chuyển card mạng sang host only.
-![](hostonly.png)
+![](hdưới:
 ![](StaticIP.png)
-- Ta cấu hình như hình trên:
+
 - Sau khi cấu hình xong ta có thể khởi động NGINX và truy cập vào 192.168.1.1 bằng firefox,chorme,... để có thể thấy nginx hoạt động như dưới:
 - ```
     sudo systemctl start nginx
