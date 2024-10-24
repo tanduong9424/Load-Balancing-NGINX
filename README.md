@@ -28,8 +28,10 @@
 - Nginx không có sẵn trong kho lưu trữ mặc định của CentOS, vì vậy bạn cần thêm kho EPEL (Extra Packages for Enterprise Linux)
 - ```sudo yum install epel-release``` tiếp theo ta cài đặt nginx ```sudo yum install nginx -y```, kiểm tra việc cài đặt bằng  ```rpm -qa| grep nginx```
 - Ta tiến hành tắt tường lửa đi để dễ dàng cho việc demo:
-- ```systemctl stop firewalld
-systemctl disable firewalld```
+```
+systemctl stop firewalld
+systemctl disable firewalld
+```
 - Làm tương tự trên 2 node.
 ## II. Cấu hình IP tĩnh
 ```
@@ -41,8 +43,8 @@ Client 2: 192.168.1.20/24 (không bắt buộc)
 ```
 ![](tolopy.png)
 ### 1. Cấu hình IP tĩnh trên Loadbalancer
-- Ta cấu hình như hình dưới:
-![](staticipserver.png)
+![](StaticIP.png)
+- Ta cấu hình như hình trên:
 - Sau khi cấu hình xong ta có thể khởi động NGINX và truy cập vào 192.168.1.1 bằng firefox,chorme,... để có thể thấy nginx hoạt động như dưới:
 - ```
     sudo systemctl start nginx
@@ -52,11 +54,7 @@ Client 2: 192.168.1.20/24 (không bắt buộc)
 ![](defaultnginx.png)
 
 ### 2. Cấu hình IP tĩnh trên node
-- Ở node thứ nhất ta cấu hình như sau:
-  ![](staticipnode1.png)
-- Tương tự với node2:
-  ![](staticipnode2.png)
-  
+- Ở node thứ nhất và thứ 2 ta cấu hình như trên:
 ### 3. Cấu hình IP tĩnh trên Client
 - Chuyển địa chỉ ip của client sang như sau
 ![](staticipclient.png)
