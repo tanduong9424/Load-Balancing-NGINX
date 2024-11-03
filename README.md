@@ -144,7 +144,7 @@ $TTL 1d
 - Mẹo: Nếu ta bị lỗi lúc ```systemctl restart named``` ta có thể thử ```sudo lsof -i :53``` và ```kill -9 PID``` những process đang dùng port 53 (TCP/UDP) rồi thử lại.
   
 ## III. Cấu hình NGINX
-- Một số folder đáng lưu ý:\
+- Một số folder đáng lưu ý:
 	- ```/usr/share/nginx/html``` : thư mục chứa nội dung mã nguồn website.
 	- ```/etc/nginx/``` : Thư mục chứa các file cấu hình của Nginx.
 	- ```/etc/nginx/nginx.conf``` : File mà nginx sẽ load lên đầu tiên, tuy nhiên ta không cấu hình ở đây mà sẽ cấu hình ở 1 file được tạo mới có đuôi .conf được chứa.
@@ -170,17 +170,6 @@ upstream backend {
 server {
 	listen       80;
 	server_name  sgu.edu.vn ns1.sgu.edu.vn;
-	root         /usr/share/nginx/html;
-
-        include /etc/nginx/default.d/*.conf;
-
-        error_page 404 /404.html;
-        location = /404.html {
-        }
-
-        error_page 500 502 503 504 /50x.html;
-        location = /50x.html {
-        }
 
 	location / {	#them block location de tro den upstream o tren chua 2 node
 		proxy_pass http://backend;
@@ -206,13 +195,6 @@ server {
 	server_name  ns2.sgu.edu.vn;
 	root         /usr/share/nginx/html;
 	index	index.html; # thêm dòng này để chỉ đến file index
-        include /etc/nginx/default.d/*.conf;
-        error_page 404 /404.html;
-        location = /404.html {
-        }
-        error_page 500 502 503 504 /50x.html;
-        location = /50x.html {
-        }
 }
 ```
 - Làm tương tự trên node thứ 2 và cấu hình như sau:
@@ -222,13 +204,6 @@ server {
 	server_name  ns3.sgu.edu.vn;
 	root         /usr/share/nginx/html;
 	index	index.html;
-        include /etc/nginx/default.d/*.conf;
-        error_page 404 /404.html;
-        location = /404.html {
-        }
-        error_page 500 502 503 504 /50x.html;
-        location = /50x.html {
-        }
 }
 ```
 
@@ -249,4 +224,4 @@ sudo systemctl restart nginx
 ```
 
 - Trên client ta có thể dùng trình duyệt web để truy cập đến sgu.edu.vn, mỗi lần request, server sẽ điều hướng đến 1 node khác nhau và thể hiện một giao diện web khác nhau.
-- Đến đây là đã kết thúc phần tài liệu tham khảo về Load Balancing sử dụng NGINX trên Ubuntu server của nhóm chúng em, cảm ơn mọi người đã quan tâm
+- Đến đây là đã kết thúc phần tài liệu tham khảo về Load Balancing sử dụng NGINX trên CentOS của nhóm chúng em, cảm ơn mọi người đã quan tâm
