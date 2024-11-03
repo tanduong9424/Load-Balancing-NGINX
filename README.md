@@ -75,17 +75,17 @@ server {
 	listen       80;
 	server_name  sgu.edu.vn ns1.sgu.edu.vn;
 
-	location / {	#them block location de tro den upstream o tren chua 2 node
+	location / {	#thêm block location để trỏ đến upstream ở trên chứa 2 node
 		proxy_pass http://backend;
 	}
 }
 ```
 ## Giải thích về cách tham số và thuật toán:
-- ** ```weight``` :thông số càng lớn , Round Robin điều hướng về server đó càng nhiều, ví dụ server1 weight=3, server2 weight=1 , khi có 4 request, 3 request sẽ được điều hướng về server 1, 1 request sẽ được đưa về server2 .Tuy nhiên trước khi weight được áp dụng nginx sẽ thực hiện vòng phân phối đầu tiên theo cách cơ bản của round-robin (1 lần đến mỗi server) để đảm bảo rằng tất cả các server trong nhóm backend đã sẵn sàng và hoạt động bình thường.
-- ** ```ip_hash```: Nginx lấy ip của client đến một backend server cụ thể, đảm bảo rằng các yêu cầu từ cùng một client luôn được xử lý bởi cùng một server.
--  ** ```least_conn``` : server có ít kết nối nhất thì được điều hướng đến
-- ** ```slow_start``` :VD trong 30s thì nó k đổ dồn 100 ng request và mà nó sẽ tăng chầm chậm dần lên từ 0->1->2.. rồi sao cho trong 30s đó nó sẽ trở về với khả nằng đáp ứng request ban đầu là 100 chẳng hạn.
--  ** ```down``` : đánh dấu server đó không hoạt động.
+- ```weight``` :thông số càng lớn , Round Robin điều hướng về server đó càng nhiều, ví dụ server1 weight=3, server2 weight=1 , khi có 4 request, 3 request sẽ được điều hướng về server 1, 1 request sẽ được đưa về server2 .Tuy nhiên trước khi weight được áp dụng nginx sẽ thực hiện vòng phân phối đầu tiên theo cách cơ bản của round-robin (1 lần đến mỗi server) để đảm bảo rằng tất cả các server trong nhóm backend đã sẵn sàng và hoạt động bình thường.
+- ```ip_hash```: Nginx lấy ip của client đến một backend server cụ thể, đảm bảo rằng các yêu cầu từ cùng một client luôn được xử lý bởi cùng một server.
+- ```least_conn``` : server có ít kết nối nhất thì được điều hướng đến
+- ```slow_start``` :VD trong 30s thì nó không đổ dồn 100 ngườingười request và mà nó sẽ tăng chầm chậm dần lên từ 0->1->2.. rồi sao cho trong 30s đó nó sẽ trở về với khả nằng đáp ứng request ban đầu là 100 chẳng hạn.
+- ```down``` : đánh dấu server đó không hoạt động.
  
 - Kiểm tra lại cấu hình bằng ```nginx -t```
 - Restart lại 	```sudo systemctl restart nginx```
@@ -121,11 +121,11 @@ server {
  [File cho node thứ nhất](./index1.html)
 [File cho node thứ hai](./index2.html)
 
-- Sau khi thực hiện xong ta reset nginx để hoạt động:
+- Sau khi thực hiện xong ta restart NGINX để hoạt động:
 ```
 sudo nginx -t
 sudo systemctl restart nginx
 ```
 
 - Trên client ta có thể dùng trình duyệt web để truy cập đến sgu.edu.vn, mỗi lần request, server sẽ điều hướng đến 1 node khác nhau và thể hiện một giao diện web khác nhau.
-- Đến đây là đã kết thúc phần tài liệu tham khảo về Load Balancing sử dụng NGINX trên CentOS của nhóm chúng em, cảm ơn mọi người đã quan tâm
+- Đến đây là đã kết thúc phần tài liệu tham khảo về Load Balancing sử dụng NGINX trên CentOS của nhóm chúng em, cảm ơn mọi người đã quan tâm.
