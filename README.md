@@ -145,12 +145,12 @@ $TTL 1d
   
 ## III. Cấu hình NGINX
 - Một số folder đáng lưu ý:
-  **/usr/share/nginx/html : thư mục chứa nội dung mã nguồn website.
-  **/etc/nginx/ : Thư mục chứa các file cấu hình của Nginx.
-  **/etc/nginx/nginx.conf : File mà nginx sẽ load lên đầu tiên tui nhiên ta không cấu hình ở đây mà sẽ cấu hình ở 1 file được tạo mới có đuôi .conf được chứa.
-  **/etc/nginx/nginx.conf.default :File mà nginx sẽ load server block mặc định nếu không có server block nào khớp với tên miền mà user request.
-  **/etc/nginx/conf.d : Thư mục chứa các file cấu hình block server, mỗi block sẽ ứng với 1 tên miền, các file ở đây phải được tạo với đuôi .conf để nginx có thể nhận dạng và load.
-   **/etc/nginx/default.d : Thư mục chứa các file cấu hình block server mặc định khi không có server block nào khớp với tên miền mà user request.
+  ```/usr/share/nginx/html``` : thư mục chứa nội dung mã nguồn website.
+  ```/etc/nginx/``` : Thư mục chứa các file cấu hình của Nginx.
+  ```/etc/nginx/nginx.conf``` : File mà nginx sẽ load lên đầu tiên tui nhiên ta không cấu hình ở đây mà sẽ cấu hình ở 1 file được tạo mới có đuôi .conf được chứa.
+  ```/etc/nginx/nginx.conf.default``` :File mà nginx sẽ load server block mặc định nếu không có server block nào khớp với tên miền mà user request.
+  ```/etc/nginx/conf.d``` : Thư mục chứa các file cấu hình block server, mỗi block sẽ ứng với 1 tên miền, các file ở đây phải được tạo với đuôi .conf để nginx có thể nhận dạng và load.
+  ```/etc/nginx/default.d``` : Thư mục chứa các file cấu hình block server mặc định khi không có server block nào khớp với tên miền mà user request.
   
 ### 1. Cấu hình Loadbalancer Server
 #### Trên server Load Balancer ta tiến hành cấu hình:
