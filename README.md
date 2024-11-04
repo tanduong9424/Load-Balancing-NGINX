@@ -32,7 +32,7 @@
 systemctl stop firewalld
 systemctl disable firewalld
 ```
-- Làm tương tự trên 2 node.
+- Làm tương tự trên 2 node. (trên các node có thể dựng web server bằng Apache hoặc NGINX, ở hướng dẫn này sử dụng NGINX)
 ## II. Cấu hình IP tĩnh
 ```
 Server Load Balancer: 192.168.1.1/24
@@ -146,11 +146,9 @@ $TTL 1d
 	- ```/etc/nginx/default.d``` : Thư mục chứa các file cấu hình block server mặc định khi không có server block nào khớp với tên miền mà user request.
   
 ### 1. Cấu hình Loadbalancer Server
-#### Trên server Load Balancer ta tiến hành cấu hình:
-- Ở /etc/nginx/nginx.conf ta chú ý có dòng  ```include /etc/nginx/default.d/*.conf;``` nghĩa là nginx sẽ load các server block của các file được định dạng .conf  trong đường đẫn đó lên để hiển thị khi người dùng request.
-
-### 2. Cấu hình IP tĩnh tNGINX load lên.
-- Tiến hành tạo block cho serve sgu.edu.vn ```touch /etc/nginx/conf.d/sgu.edu.vn.conf```, sau đó cấu hình như sau :
+- Có thể cấu hình luôn ở trong file ```/etc/nginx/nginx.conf```. Nhưng nếu quản lý nhiều domain, có thể gây khó khăn trong việc quản lý. Vì vậy ta nên chia nhỏ các file ra để cấu hình.
+- Ở /etc/nginx/nginx.conf ta chú ý có dòng  ```include /etc/nginx/conf.d/*.conf;``` nghĩa là nginx sẽ load các server block của các file được định dạng .conf trong đường đẫn đó lên để hiển thị khi người dùng request.
+- Tiến hành tạo block cho server sgu.edu.vn ```touch /etc/nginx/conf.d/sgu.edu.vn.conf```, sau đó cấu hình như sau :
 ```sh
 upstream backend {
 	#least_conn;
@@ -182,7 +180,7 @@ server {
 - Restart lại 	```sudo systemctl restart nginx```
 - Nếu có lỗi ta tiến hành ```journalctl -xe nginx``` để tìm lỗi nếu là lỗi chính tả. Nếu không có lỗi chính tả ta tiến hành ```sudo lsof -i :80``` để kiểm tra các tiến trình đang dùng chung port 80 với Nginx, nếu có hãy kết thúc bằng câu lệnh ```kill -9 PID``` với PID là ID của tiến trình đang dùng port 80 đã nói trên. Sau đó tiến hành restart lại Nginx.
 
-#### Tiếp đến ta cấu hình web ở trên 2 node
+### 2. Cấu hình trên các node
 - Tiến hành tạo block cho serve sgu.edu.vn trên node thứ nhất```touch /etc/nginx/conf.d/sgu.edu.vn.conf```, sau đó cấu hình trên Node thứ nhất như sau :
 ``` sh
 server {
@@ -192,6 +190,7 @@ server {
 	index	index.html; # thêm dòng này để chỉ đến file index
 }
 ```
+
 - Làm tương tự trên node thứ 2 và cấu hình như sau:
 ```sh
 server {
