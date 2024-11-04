@@ -22,7 +22,7 @@
 ### 2. Tiến hành cài gói BIND
 - Tiến hành cài gói BIND như sau:
 - ```sudo yum update -y```
-- ```yum install bind -y```, để kiểm tra cài đặt thành công ta gõ ```rpm -qa| grep bind```.
+- ```yum install bind -y```, để kiểm tra cài đặt thành công ta gõ ```rpm -qa| grep bind``` (hoặc kiểm tra phiên bản đã cài ```nginx -v```).
 - Chỉ cần cài đặt trên Load blancer server thôi, không cần cài trên 2 node.
 ### 3. Tiến hành cài đạt gói NGINX
 - Nginx không có sẵn trong kho lưu trữ mặc định của CentOS, vì vậy bạn cần thêm kho EPEL (Extra Packages for Enterprise Linux)
