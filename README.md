@@ -13,7 +13,6 @@
 - **III. Cấu hình NGINX**
     - **1. Cấu hình Loadbalancer Server**
     - **2. Cấu hình trên các node**
-    - **3. Khởi động lại dịch vụ NGINX**
 
 ## I. Cài đặt BIND và NGINX
 ### 1. Chuẩn bị 
