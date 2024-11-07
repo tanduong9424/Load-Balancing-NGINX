@@ -1,4 +1,5 @@
 # Cấu hình Loadbalancing bằng NGINX trên CentOS
+ Video tham khảo https://www.youtube.com/watch?v=fdOh9TxkmKY
 ## Nội dung
 - **I. Cài đặt gói BIND và NGINX**
 - **II. Cấu hình ip tĩnh**
