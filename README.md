@@ -210,7 +210,7 @@ server {
 - Sau đó có thể code web theo ý thích chẳng hạn ở đây nhóm mình có 1 đoạn code nhỏ cho mọi người demo, các bạn có thể copy và paste vào file index.html này.
  [File cho node thứ nhất](./index1.html)
 [File cho node thứ hai](./index2.html)
-- Để sử dụng Web nhóm cung cấp, hãy lưu tất cả các ảnh trong folder [Ảnh DemoDemo]([(https://github.com/tanduong9424/Load-Balancing-NGINX/edit/main)/img) vào /usr/share/nginx/html/img để hoạt động
+- Để sử dụng Web nhóm cung cấp, hãy lưu tất cả các ảnh trong folder [Ảnh DemoDemo](https://github.com/tanduong9424/Load-Balancing-NGINX/tree/main/img) vào /usr/share/nginx/html/img để hoạt động
 - Sau khi thực hiện xong ta restart NGINX để hoạt động:
 ```
 sudo nginx -t
