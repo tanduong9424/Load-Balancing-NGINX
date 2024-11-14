@@ -1,59 +1,196 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manchester United Style</title>
-    <style>
-        body {
-            background-color: #A50024; /* Nền đỏ */
-            color: #FFD700; /* Chữ vàng */
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            padding: 50px;
-        }
-        h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 24px;
-        }
-        .decorative {
-            border: 2px solid #FFD700; /* Viền vàng */
-            padding: 20px;
-            margin: 20px auto;
-            width: 80%;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Đổ bóng */
-        }
-        .button {
-            background-color: #FFD700; /* Nền vàng cho nút */
-            color: #A50024; /* Chữ đỏ */
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            font-size: 20px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .button:hover {
-            background-color: #FFC300; /* Màu vàng nhạt khi hover */
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manchester United</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 150%;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('/bgmu.webp');
+      background-size: cover;
+      background-position: center;
+    }
+    img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover; /* Đảm bảo hình ảnh luôn vừa với khung */
+      border-radius: 50%; /* Làm ảnh tròn, nếu cần */
+    }
+
+    /* Container with grid layout for player positions */
+    .formation {
+      display: grid;
+      grid-template-areas:
+        ". player1 . . . player2 ."
+        "player3 . player4.player5 . player6"
+        ".player7  player8 . player9  player11."
+        ". . . player10 . . .";
+      gap: 20px;
+      width: 80vw;
+      height: 80vh;
+      transform: translateY(-40%);
+    }
+    
+    /* General styling for player cards */
+    .player-card {
+    background: rgba(252, 252, 252, 0.6); /* White with 60% transparency */
+    width: 150px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    text-align: center;
+  }
+    
+    .player-card img {
+      border-radius: 50%;
+      width: 130px;
+      height: 130px;
+      margin-bottom: 10px;
+    }
+    
+    .player-card h3, .player-card p {
+      margin: 5px 0;
+    }
+    
+    .player-card .player-number {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    /* Position each player in the grid */
+    .player1 { 
+      grid-area: player1; }
+    .player2 {
+       grid-area: player2; }
+    .player3 { 
+      grid-area: player3;
+      transform: translateY(-50%); }
+    .player4 { 
+      grid-area: player4;
+      transform: translateY(-30%); }
+    .player5 {
+       grid-area: player5; 
+       transform: translateY(-30%);}
+    .player6 { 
+      grid-area: player6;
+      transform: translateY(-50%); }
+    .player7 { 
+      grid-area: player7;
+      transform: translateY(-80%); }
+    .player8 { 
+      grid-area: player8;
+      transform: translateY(-20%); }
+    .player9 { 
+      grid-area: player9;
+      transform: translateY(-20%); }
+    .player10 { 
+      grid-area: player10;
+      transform: translateY(-50%); }
+    .player11 { 
+      grid-area: player11; 
+      transform: translateY(-80%);}
+
+  </style>
 </head>
 <body>
 
-    <h1>Welcome to Manchester United</h1>
-    <div class="decorative">
-        <p>Join us in celebrating the spirit of Manchester United!</p>
-        <button class="button" onclick="showMessage()">Click me</button>
-    </div>
-
-    <script>
-        function showMessage() {
-            alert("Glory Glory Man Utd!");
-        }
-    </script>
+<div class="formation">
+  <div class="player-card player1">
+    <img src="/tevez.webp" alt="Player 1">
+    <div class="player-number">32</div>
+    <h3>Carlos Tevez</h3>
+    <p>Vị trí: Tiền Đạo</p>
+    <p>Ngày sinh: 05/02/1984</p>
+    <p>Quốc tịch: Argentina</p>
+  </div>
+  <div class="player-card player2">
+    <img src="/rooney.webp" alt="Player 2">
+    <div class="player-number">24</div>
+    <h3>Wayne Rooney</h3>
+    <p>Vị trí: Tiền đạo</p>
+    <p>Ngày sinh: 24/10/1985</p>
+    <p>Quốc tịch: Anh</p>
+  </div>
+  <div class="player-card player3">
+    <img src="/giggs.webp" alt="Player 1">
+    <div class="player-number">11</div>
+    <h3>Ryan Giggs</h3>
+    <p>Vị trí: Tiền vệ trái</p>
+    <p>Ngày sinh: 29/11/1973</p>
+    <p>Quốc tịch: Xứ Wales</p>
+  </div>
+  <div class="player-card player4">
+    <img src="/carrick.webp" alt="Player 2">
+    <div class="player-number">16</div>
+    <h3>Michael Carrick</h3>
+    <p>Vị trí: Tiền vệ trung tâm</p>
+    <p>Ngày sinh: 28/07/1981</p>
+    <p>Quốc tịch: Anh</p>
+  </div>
+  <div class="player-card player5">
+    <img src="/scholes.webp" alt="Player 1">
+    <div class="player-number">18</div>
+    <h3>Paul Scholes</h3>
+    <p>Vị trí: Tiền vệ trung tâm</p>
+    <p>Ngày sinh: 16/11/1974</p>
+    <p>Quốc tịch:Anh</p>
+  </div>
+  <div class="player-card player6">
+    <img src="/cr7.webp" alt="Player 2">
+    <div class="player-number">7</div>
+    <h3>Cristiano Ronaldo</h3>
+    <p>Vị trí: Tiền vệ trung tâm</p>
+    <p>Ngày sinh: 05/02/1985</p>
+    <p>Quốc tịch: Bồ đào nha</p>
+  </div>
+  <div class="player-card player7">
+    <img src="/erva.webp" alt="Player 1">
+    <div class="player-number">3</div>
+    <h3>Patrice Evra</h3>
+    <p>Vị trí: Hậu vệ trái</p>
+    <p>Ngày sinh: 15/05/1981</p>
+    <p>Quốc tịch: Pháp</p>
+  </div>
+  <div class="player-card player8">
+    <img src="/vidic.webp" alt="Player 2">
+    <div class="player-number">15</div>
+    <h3>Nemanja Vidic</h3>
+    <p>Vị trí: Trung vệ</p>
+    <p>Ngày sinh: 21/10/1981</p>
+    <p>Quốc tịch: Serbia</p>
+  </div>
+  <div class="player-card player9">
+    <img src="/rio.webp" alt="Player 1">
+    <div class="player-number">5</div>
+    <h3>Rio Ferdinand</h3>
+    <p>Vị trí: Trung vệ</p>
+    <p>Ngày sinh: 07/11/1978</p>
+    <p>Quốc tịch: Anh</p>
+  </div>
+  <div class="player-card player10">
+    <img src="/edwin.webp" alt="Player 2">
+    <div class="player-number">1</div>
+    <h3>Edwin van der Sar</h3>
+    <p>Vị trí: Thủ môn</p>
+    <p>Ngày sinh: 28/10/1970</p>
+    <p>Quốc tịch: Hà Lan</p>
+  </div><div class="player-card player11">
+    <img src="/wes.webp" alt="Player 2">
+    <div class="player-number">6</div>
+    <h3>Wes Brown</h3>
+    <p>Vị trí: Hậu vệ phải</p>
+    <p>Ngày sinh: 13/10/1979</p>
+    <p>Quốc tịch: Anh</p>
+  </div>
+  <!-- Add other players similarly with correct classes from player3 to player11 -->
+</div>
 
 </body>
 </html>
