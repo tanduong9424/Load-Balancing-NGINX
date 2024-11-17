@@ -188,6 +188,11 @@ server {
 	server_name  ns2.sgu.edu.vn;
 	root         /usr/share/nginx/html;
 	index	index.html; # thêm dòng này để chỉ đến file index
+
+	location ~* \.webp$ {
+            root /usr/share/nginx/html/img;
+            try_files $uri $uri/ =404;
+        }
 }
 ```
 
@@ -198,6 +203,11 @@ server {
 	server_name  ns3.sgu.edu.vn;
 	root         /usr/share/nginx/html;
 	index	index.html;
+
+	location ~* \.webp$ {
+            root /usr/share/nginx/html/img;
+            try_files $uri $uri/ =404;
+        }
 }
 ```
 
