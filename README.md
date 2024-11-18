@@ -162,7 +162,7 @@ upstream backend {
 
 server {
 	listen       80;
-	server_name  sgu.edu.vn ns1.sgu.edu.vn;
+	server_name  sgu.edu.vn;
 
 	location / {	#thêm block location để trỏ đến upstream ở trên chứa 2 node
 		proxy_pass http://backend;
